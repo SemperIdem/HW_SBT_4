@@ -29,11 +29,11 @@ public class Squad implements Cloneable {
 
     public Warrior getRandomWarrior() throws NotLiveWarriorException {
         if(!hasAliveWarriors())
-            throw new NotLiveWarriorException("Живые бойцы отсутсвуют");
+            throw new NotLiveWarriorException("Живые бойцы отсутствуют");
         ArrayList<Warrior> liveWars = new ArrayList<Warrior>();
-        for (int i=0;i<squad.size();i++) {
-            if(squad.get(i).isAlive()) {
-                liveWars.add(squad.get(i));
+        for (Warrior fighter : squad) {
+            if(fighter.isAlive()) {
+                liveWars.add(fighter);
             }
         }
         return liveWars.get(new Random().nextInt(liveWars.size()));
