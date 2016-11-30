@@ -8,10 +8,10 @@ public class Squad implements Cloneable {
     private ArrayList<Warrior> squad;
     private String squadName;
 
-
+    //лишние пустые строки
     public Squad(String str) {
         squadName=str;
-        squad = new ArrayList<Warrior>();
+        squad = new ArrayList<Warrior>();//второй раз тип указывать не обязательно, можно просто new ArrayList<>();
     }
 
     public Squad(String str,ArrayList<Warrior> sq) {
@@ -33,7 +33,7 @@ public class Squad implements Cloneable {
         ArrayList<Warrior> liveWars = new ArrayList<Warrior>();
         for (Warrior fighter : squad) {
             if(fighter.isAlive()) {
-                liveWars.add(fighter);
+                liveWars.add(fighter);//не самое лучшее решение. если создадим млн бойцов, потом будем копировать млн ссылок?
             }
         }
         return liveWars.get(new Random().nextInt(liveWars.size()));
@@ -50,7 +50,7 @@ public class Squad implements Cloneable {
     }
     public void setSquadName(String str) {
         squadName=str;
-        if(squad!=null) {
+        if(squad!=null) {//то есть мы принимаем null как допустимый аргумент, но с бойцами ничего не делаем. почему?
             for(Warrior fighter : squad ) {
                 fighter.setSquadName(str);
             }
