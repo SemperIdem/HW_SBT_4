@@ -9,7 +9,7 @@ public class Warlord implements Cloneable, Warrior {
 
     public Warlord(String name) {
         this.name=name;
-        health=90;
+        health=90; //для улучшения читаемости лучше отделять операции пробелами: health = 90; аналогично везде
         damage=15;
     }
     @Override

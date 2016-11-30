@@ -11,7 +11,7 @@ public class Battle {
             humans.addFighter(new Knight("Knight #"+i));
         }
         Squad orcs = humans.clone();
-        orcs.setSquadName("Orcs");
+        orcs.setSquadName("Orcs"); //нужно разделить подготовку к битве и саму битву, причем лучше по разным классам
 
         DataHelper data = new DataHelper();
         System.out.println("Battle started at "+data.getFormattedStartDate());
@@ -24,7 +24,7 @@ public class Battle {
             data.skipTime();
             human.takeDamage(orc.attack());
         }
-        System.out.println("Battle ending at "+data.getFormattedFinishDate());
+        System.out.println("Battle ending at "+data.getFormattedFinishDate()); //мы не получаем никакой информации о ходе сражения, а хотелось бы
         System.out.println(data.getFormattedDiff());
         if (orcs.hasAliveWarriors())
             System.out.println(orcs.getSquadName()+" won!!!");
